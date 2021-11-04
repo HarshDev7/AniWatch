@@ -74,6 +74,7 @@
     }
 
     li a {
+        font-size: 20px;
         display: block;
         color: cornsilk;
         text-align: center;
@@ -274,13 +275,28 @@
     }
 
 
+    #mySidenav {
+        visibility: hidden;
+    }
 
+    #main {
+        visibility: hidden;
+    }
 
+    footer {
+        background: lawngreen;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .rwelcome {
+        visibility: hidden;
+    }
 
     @media screen and (max-width: 1350px) {
         body {
             /* background-color: #f1f1f1; */
-            display: block;
+            display: inline;
         }
 
         .sidenav {
@@ -321,8 +337,12 @@
         #main {
             transition: margin-left .5s;
             padding: 16px;
+            visibility: visible;
         }
 
+        #mySidenav {
+            visibility: visible;
+        }
 
         .sidenav {
             padding-top: 15px;
@@ -344,8 +364,54 @@
         /* body {
         background-color: blanchedalmond;
     } */
+        .btn {
+            position: relative;
+            top: 187px;
+            right: 384px;
+
+        }
+
+        .feati {
+            padding: 102px 3px;
+        }
+
+        .featp {
+            font: 18px;
+        }
 
         .op {
+            visibility: hidden;
+        }
+
+        .footer {
+            width: auto;
+        }
+
+        .welcome {
+            top: 700px;
+        }
+
+        .rwelc {
+            text-align: center;
+        }
+
+        .slider {
+            margin: auto;
+        }
+
+        .welcome {
+            margin: 0px 0px;
+        }
+
+        .rwelcome {
+            visibility: visible;
+            text-align: center;
+            padding: 10px 10px;
+
+        }
+
+        .welcome {
+            text-align: center;
             visibility: hidden;
         }
     }
@@ -370,16 +436,17 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#">Home</a>
+        <a href="#">Contact Us</a>
+        <a href="#">List</a>
+        <a href="#">DMCA</a>
     </div>
 
     <div id="main">
 
 
-        <span class="sidnav" style="font-size:30px;cursor:pointer;  color: white;" onclick="openNav()">&#9776;</span>
+        <span class="sidnav" style="font-size:30px;cursor:pointer;  color: lawngreen;"
+            onclick="openNav()">&#9776;</span>
     </div>
 
     <script>
@@ -393,15 +460,16 @@
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
-    <div class="welc">
-        <h2 style="color: white; " class="inline"><a href="home.html">Start your Watching Journey Now!</a></h1>
+    <div class="welcome">
+        <div class="welc">
+            <h2 style="color: white; " class="inline"><a href="home.html">Start your Watching Journey Now!</a></h1>
 
+        </div>
+        <br>
+        <div class="btndiv">
+            <button class="btn"><a href="home.html">Start Now!</a></button>
+        </div>
     </div>
-    <br>
-    <div class="btndiv">
-        <button class="btn"><a href="home.html">Start Now!</a></button>
-    </div>
-
 
 
     <!--image slider start-->
@@ -457,10 +525,20 @@
             }
         }, 5000);
     </script>
+    <div class="rwelcome">
+        <div class="rwelc welc">
+            <h2 style="color: white; " class="inline"><a href="home.html">Start your Watching Journey Now!</a></h1>
+
+        </div>
+        <br>
+        <div class="btndiv">
+            <button class="btn"><a href="home.html">Start Now!</a></button>
+        </div>
+    </div>
     <section class="feat">
         <div class="feati">
             <details>
-                <summary>Why Use Us?</summary>
+                <summary>Why Use Our Website?</summary>
                 <p class="featp">Our site is totally ad-free and no login is required so we don't store any of your data
                     on
                     our server!
@@ -468,9 +546,10 @@
             </details>
             <!-- <&nbsp> -->
             &nbsp;
+            <br style="color: white; background-color: white;">
             <details>
                 <summary>What is our Pricing?</summary>
-                <p class="featp">It is totally free and you can watch your favourite content for unlimited time!
+                <p class="featp">It is totally FREE! You can watch your favourite content for unlimited time!
                 </p>
             </details>
             &nbsp;
@@ -483,7 +562,13 @@
             </details>
         </div>
     </section>
-
+    <div class="footer">
+        <footer class="footer">
+            <span>&copf; Copyright 2021 AniWatch.ml</span>
+            <br>
+            <span>Made With &#10084; By Harsh</span>
+        </footer>
+    </div>
 </body>
 
 </html>
