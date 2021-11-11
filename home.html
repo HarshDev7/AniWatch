@@ -7,70 +7,10 @@
     <link rel="stylesheet" href="css/navb.css">
     <script src="/app.js"></script>
     <link rel="stylesheet" href="flickity-docs/flickity.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
     <script src="flickity-docs/flickity.pkgd.min.js"></script>
 </head>
-<script>
-    let draggableSlider = function () {
-        // DOM element(s)
-        let slider = document.querySelector(".uslider"),
-            innerSlider = document.querySelector(".uslider-inner");
 
-        // Slider variables
-        let pressed = false,
-            startX,
-            x;
-
-        // Mousedown eventlistener
-        slider.addEventListener("mousedown", (e) => {
-            pressed = true;
-            startX = e.offsetX - innerSlider.offsetLeft;
-            slider.style.cursor = "grabbing";
-        });
-
-        // mouseneter
-        slider.addEventListener("mouseenter", () => {
-            slider.style.cursor = "grab";
-        });
-
-        // mouseup
-        slider.addEventListener("mouseup", () => {
-            slider.style.cursor = "grab";
-        });
-
-        // window
-        window.addEventListener("mouseup", () => {
-            pressed = false;
-        });
-
-        // Slider mousemove event listener
-        slider.addEventListener("mousemove", (e) => {
-            if (!pressed) return;
-            e.preventDefault();
-
-            x = e.offsetX;
-
-            innerSlider.style.left = `${x - startX}px`;
-
-            checkBoundry();
-        });
-
-        // Check boundry of outer and inner sliders
-        function checkBoundry() {
-            let outer = slider.getBoundingClientRect(),
-                inner = innerSlider.getBoundingClientRect();
-
-            if (parseInt(innerSlider.style.left) > 0) {
-                innerSlider.style.left = "0px";
-            } else if (inner.right < outer.right) {
-                innerSlider.style.left = `-${inner.width - outer.width}px`;
-            }
-        }
-    };
-
-    // Invoke code
-    draggableSlider();
-
-</script>
 <style>
     body {
         margin: 0;
@@ -83,112 +23,31 @@
     }
 
     .slider {
-        padding-top: 100px;
-        margin: auto;
-        width: 800px;
+        padding-top: 40px;
+    }
+
+    .slider-cell {
+        width: 66%;
         height: 500px;
-        border-radius: 10px;
-        overflow: hidden;
+        margin-right: 10px;
 
+        border-radius: 5px;
+        counter-increment: carousel-cell;
     }
 
-    .slides {
-        width: 500%;
-        height: 500px;
-        display: flex;
+    /* cell number */
+    .slider-cell:before {
+        display: block;
+        text-align: center;
+
+        /* line-height: 200px; */
+        font-size: 80px;
+        color: white;
     }
 
-    .slides input {
-        display: none;
-    }
-
-    .slide {
-        width: 20%;
-        transition: 2s;
-    }
-
-    .slide img {
-        width: 800px;
-        height: 500px;
-    }
-
-    /*css for manual slide navigation*/
-
-    .navigation-manual {
-        position: absolute;
-        width: 800px;
-        margin-top: -40px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .manual-btn {
-        border: 2px solid #40D3DC;
-        padding: 5px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 1s;
-    }
-
-    .manual-btn:not(:last-child) {
-        margin-right: 40px;
-    }
-
-    .manual-btn:hover {
-        background: #40D3DC;
-    }
-
-    #radio1:checked~.first {
-        margin-left: 0;
-    }
-
-    #radio2:checked~.first {
-        margin-left: -20%;
-    }
-
-    #radio3:checked~.first {
-        margin-left: -40%;
-    }
-
-    #radio4:checked~.first {
-        margin-left: -60%;
-    }
-
-    /*css for automatic navigation*/
-
-    .navigation-auto {
-        position: absolute;
-        display: flex;
-        width: 800px;
-        justify-content: center;
-        margin-top: 460px;
-    }
-
-    .navigation-auto div {
-        border: 2px solid #40D3DC;
-        padding: 5px;
-        border-radius: 10px;
-        transition: 1s;
-    }
-
-    .navigation-auto div:not(:last-child) {
-        margin-right: 40px;
-    }
-
-    #radio1:checked~.navigation-auto .auto-btn1 {
-        background: #40D3DC;
-    }
-
-    #radio2:checked~.navigation-auto .auto-btn2 {
-        background: #40D3DC;
-    }
-
-    #radio3:checked~.navigation-auto .auto-btn3 {
-        background: #40D3DC;
-    }
-
-    #radio4:checked~.navigation-auto .auto-btn4 {
-        background: #40D3DC;
+    .slider-cell img {
+        width: 100%;
+        height: 100%;
     }
 
     * {
@@ -277,6 +136,27 @@
         color: white;
     }
 
+    i {
+        color: white;
+        /* background-color: white; */
+    }
+
+
+
+    @media screen and (max-width: 940px) {
+        nav .menu {
+            display: none;
+        }
+
+        .mobile-container {
+            display: block;
+        }
+
+        .slider-cell {
+            height: 300px;
+        }
+    }
+
     @media screen and (max-width: 672px) {
         .carousel-cell {
 
@@ -284,13 +164,34 @@
             width: 40%;
 
         }
+
+
     }
 
+    @media screen and (max-width: 530px) {
+        .slider-cell {
+            height: 200px;
+        }
+    }
+
+    @media screen and (max-width: 300px) {
+        .slider-cell {
+            height: 180px;
+        }
+    }
 
     @media screen and (max-width: 424px) {
         .carousel-cell {
             height: 100px;
             width: 40%;
+        }
+
+        .slider-cell {
+            height: 182px;
+        }
+
+        .footer {
+            font-size: 16px;
         }
     }
 </style>
@@ -321,69 +222,29 @@
                 <li class="menu-item"><a href="#">DMCA</a></li>
             </ul>
             <div class="search">
-                <input type="text" name="" id="" placeholder="Search">
+                <input type="text" name="" id="" placeholder="Search"><i class="fas fa-search"></i>
             </div>
         </nav>
-        <!--image slider start-->
-        <div class="slider">
-            <div class="slides">
-                <!--radio buttons start-->
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-                <!--radio buttons end-->
-                <!--slide images start-->
-                <div class="slide first">
-                    <a href="demon_slayer/demonslayer.html">
-                        <img src="img/poster1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="slide">
-                    <img src="img/poster2.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="img/poster3.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="img/poster4.jpg" alt="">
-                </div>
-                <!--slide images end-->
-                <!--automatic navigation start-->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                </div>
-                <!--automatic navigation end-->
-            </div>
-            <!--manual navigation start-->
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
-            </div>
-            <!--manual navigation end-->
-        </div>
-        <!--image slider end-->
 
-        <script type="text/javascript">
-            var counter = 1;
-            setInterval(function () {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 4) {
-                    counter = 1;
-                }
-            }, 5000);
-        </script>
+
+
+        </div>
+        <!--image slider start-->
+        <!-- Flickity HTML init -->
+        <div class="slider" data-flickity='{ "wrapAround": true }'>
+            <div class="slider-cell"><a href="#"><img src="img/poster1.jpg" alt=""></a></div>
+            <div class="slider-cell"><a href="#"><img src="img/poster2.jpg" alt=""></a></div>
+            <div class="slider-cell"><a href="#"><img src="img/poster3.jpg" alt=""></a></div>
+            <div class="slider-cell"><a href="#"><img src="img/poster4.jpg" alt=""></a></div>
+            <div class="slider-cell"><a href="#"><img src="img/poster5.jpg" alt=""></a></div>
+            <div class="slider-cell"><a href="#"><img src="img/poster6.jpg" alt=""></a></div>
+        </div>
+
         &nbsp;
         &nbsp;
         &nbsp;
         <h1 class="animeh1">Popular &bull; Anime</h1>
-        <div class="carousel" data-flickity='{ "groupCells": true }'>
+        <div class="carousel" data-flickity='{ "groupCells": true, "freeScroll":true}'>
             <div class="carousel-cell cell-uk"><a class="cell-1" href="#"><img src="img/aniRec10.jpg" alt=""></a></div>
             <div class="carousel-cell cell-2"><a class="cell-1" href="#"><img src="img/aniRec11.jpg" alt=""></a></div>
             <div class="carousel-cell cell-3"><a class="cell-1" href="#"><img src="img/aniRec1.jpg" alt=""></a></div>
@@ -397,14 +258,16 @@
             <div class="carousel-cell cell-11"><a class="cell-1" href="#"><img src="img/aniRec9.jpg" alt=""></a></div>
         </div>
         %nbsp;
-        <h1 class="webs">WebSeries</h1>
-        <div class="carousel" data-flickity='{ "groupCells": true }'>
+        <h1 style="padding-left: 46px;" class="webs">WebSeries</h1>
+        <div class="carousel" data-flickity='{ "groupCells": true, "freeScroll":true }'>
             <div class="carousel-cell cell-uk"><a class="cell-1" href="#"><img src="img/webRec1.jpg" alt=""></a></div>
             <div class="carousel-cell cell-2"><a class="cell-1" href="#"><img src="img/webRec2.jpg" alt=""></a></div>
             <div class="carousel-cell cell-3"><a class="cell-1" href="#"><img src="img/webRec3.jpg" alt=""></a></div>
             <div class="carousel-cell cell-4"><a class="cell-1" href="#"><img src="img/webRec4.jpg" alt=""></a></div>
             <div class="carousel-cell cell-5"><a class="cell-1" href="#"><img src="img/webRec5.jpg" alt=""></a></div>
             <div class="carousel-cell cell-6"><a class="cell-1" href="#"><img src="img/webRec6.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-6"><a class="cell-1" href="#"><img src="img/webRec7.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-6"><a class="cell-1" href="#"><img src="img/webRec8.jpg" alt=""></a></div>
 
         </div>
         &nbsp;
@@ -414,7 +277,7 @@
             </span>
             <br>
             <span>
-                Made with &#10084; By <a href="t.me/feedback7bot">Harsh</a>
+                Made with &#10084; By <a style="text-decoration: underline;" href="https://t.me/feedback7bot">Harsh</a>
             </span>
         </footer>
     </body>
