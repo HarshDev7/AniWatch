@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>AniWatch - Homepage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/navb.css">
     <script src="/app.js"></script>
+    <link rel="stylesheet" href="flickity-docs/flickity.css">
+    <script src="flickity-docs/flickity.pkgd.min.js"></script>
 </head>
 <script>
     let draggableSlider = function () {
@@ -70,62 +72,6 @@
 
 </script>
 <style>
-    .op {
-        /* overflow: hidden; */
-        margin: 8px;
-        padding: 8px;
-        /* position: fixed; */
-        /* position: sticky; */
-        /* width: 100%; */
-    }
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #333;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    li {
-        display: flex;
-        display: inline-block;
-        /*IE7*/
-        *zoom: 1;
-        /*IE7*/
-        /* background:blue; */
-        color: white;
-        margin-right: 10px;
-    }
-
-    li:last-child {
-        border-right: none;
-    }
-
-    li a {
-        display: block;
-        color: cornsilk;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 20px;
-    }
-
-    li a:hover:not(.active) {
-        background-color: #111;
-    }
-
-    .navimg {
-        float: right;
-        height: 49px;
-    }
-
-    .navimgl {
-        float: left;
-        height: 49px;
-    }
-
     body {
         margin: 0;
         padding: 0;
@@ -137,6 +83,7 @@
     }
 
     .slider {
+        padding-top: 100px;
         margin: auto;
         width: 800px;
         height: 500px;
@@ -244,189 +191,232 @@
         background: #40D3DC;
     }
 
+    * {
+        box-sizing: border-box;
+    }
 
-    @media screen and (max-width: 1350px) {
-        li a {
-            font-size: 30px;
+
+
+    .carousel {
+        /* padding-top: 500px; */
+        /* height: 100vh; */
+        /* background: #EEE; */
+    }
+
+    /* .flickity-enabled.is-draggable {
+        padding-top: 200px;
+    } */
+
+    .carousel-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        background-size: cover;
+        border-radius: 5px;
+    }
+
+
+
+    .carousel-cell {
+        width: 22vw;
+        height: 13vw;
+        margin-right: 10px;
+        background: rgb(0, 0, 0);
+        border-radius: 5px;
+        counter-increment: carousel-cell;
+    }
+
+
+
+    /* cell number */
+    .carousel-cell:before {
+        display: block;
+        text-align: center;
+
+        line-height: 200px;
+        font-size: 80px;
+        /* color: white; */
+    }
+
+    .carousel-cell:hover {
+        transform: scale(1.1);
+        transition: 0.7s;
+    }
+
+    .cell-uk img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+
+        background-size: cover;
+    }
+
+    .flickity-slider {
+        padding: 0px 0px;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    .animeh1 {
+        padding-left: 46px;
+        padding-top: 79px;
+    }
+
+    footer {
+        background: rgb(36, 36, 36);
+        padding-top: 20px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    @media screen and (max-width: 672px) {
+        .carousel-cell {
+
+            height: 130px;
+            width: 40%;
+
         }
     }
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 100%);
-        overflow: hidden;
-        scroll-behavior: smooth;
-        margin: 90px;
-    }
 
-    .wrapper section {
-        width: 100%;
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(5, auto);
-        margin: 20px 0;
-    }
-
-    .wrapper section .item {
-        padding: 0 2px;
-        transition: 250ms all;
-    }
-
-    .wrapper section .item:hover {
-        margin: 0 40px;
-        transform: scale(1.2);
-    }
-
-    .wrapper section a {
-        position: absolute;
-        color: #fff;
-        text-decoration: none;
-        font-size: 6em;
-        background: black;
-        width: 80px;
-        padding: 20px;
-        text-align: center;
-        z-index: 1;
-    }
-
-    .wrapper section a:nth-of-type(1) {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-    }
-
-    .wrapper section a:nth-of-type(2) {
-        top: 0;
-        bottom: 0;
-        right: 0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-    }
-
-    #animetag {
-        margin: 90px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        a.arrow__btn {
-            display: none;
+    @media screen and (max-width: 424px) {
+        .carousel-cell {
+            height: 100px;
+            width: 40%;
         }
     }
 </style>
 
 <body>
-    <div class="op">
-        <ul style="position: sticky;">
-            <li style="position: sticky;"><a class="active" href="#">Home</a></li>
-            <li style="position: sticky;"><a target="blank" href="https://t.me/">Contact Us</a></li>
-            <li style="position: sticky;"><a href="">List</a></li>
-            <li style="position: sticky;"><a href="dmca_note.html">DMCA</a></li>
-            <img class="navimg" src="img/1.jpg" alt="">
-            <img class="navimg" src="img/2.jpg" alt="">
-            <img class="navimgl" src="img/3.jpg" alt="">
-            <img class="navimgl" src="img/4.jpg" alt="">
-        </ul>
-    </div>
-    <!--image slider start-->
-    <div class="slider">
-        <div class="slides">
-            <!--radio buttons start-->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-            <!--radio buttons end-->
-            <!--slide images start-->
-            <div class="slide first">
-                <a href="demon_slayer/List.html">
-                    <img src="img/poster1.jpg" alt="">
-                </a>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="js/jquery-3.6.0.js"></script>
+        <script src="js/lightslider.js"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <a href="#" class="lomgo">
+                <img src="img/14.jpg" alt="">
+            </a>
+            <ul class="menu">
+                <li class="menu-item"><a href="#">Home</a></li>
+                <li class="menu-item"><a href="#">List</a></li>
+                <li class="menu-item"><a href="#">Contact Us</a></li>
+                <li class="menu-item"><a href="#">DMCA</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" name="" id="" placeholder="Search">
             </div>
-            <div class="slide">
-                <img src="img/poster2.jpg" alt="">
+        </nav>
+        <!--image slider start-->
+        <div class="slider">
+            <div class="slides">
+                <!--radio buttons start-->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <!--radio buttons end-->
+                <!--slide images start-->
+                <div class="slide first">
+                    <a href="demon_slayer/demonslayer.html">
+                        <img src="img/poster1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="slide">
+                    <img src="img/poster2.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="img/poster3.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="img/poster4.jpg" alt="">
+                </div>
+                <!--slide images end-->
+                <!--automatic navigation start-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+                <!--automatic navigation end-->
             </div>
-            <div class="slide">
-                <img src="img/poster3.jpg" alt="">
+            <!--manual navigation start-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
             </div>
-            <div class="slide">
-                <img src="img/poster4.jpg" alt="">
-            </div>
-            <!--slide images end-->
-            <!--automatic navigation start-->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
-            </div>
-            <!--automatic navigation end-->
+            <!--manual navigation end-->
         </div>
-        <!--manual navigation start-->
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-            <label for="radio4" class="manual-btn"></label>
+        <!--image slider end-->
+
+        <script type="text/javascript">
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 5000);
+        </script>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <h1 class="animeh1">Popular &bull; Anime</h1>
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            <div class="carousel-cell cell-uk"><a class="cell-1" href="#"><img src="img/aniRec10.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-2"><a class="cell-1" href="#"><img src="img/aniRec11.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-3"><a class="cell-1" href="#"><img src="img/aniRec1.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-4"><a class="cell-1" href="#"><img src="img/aniRec2.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-5"><a class="cell-1" href="#"><img src="img/aniRec3.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-6"><a class="cell-1" href="#"><img src="img/aniRec4.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-7"><a class="cell-1" href="#"><img src="img/aniRec5.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-8"><a class="cell-1" href="#"><img src="img/aniRec6.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-9"><a class="cell-1" href="#"><img src="img/aniRec7.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-10"><a class="cell-1" href="#"><img src="img/aniRec8.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-11"><a class="cell-1" href="#"><img src="img/aniRec9.jpg" alt=""></a></div>
         </div>
-        <!--manual navigation end-->
-    </div>
-    <!--image slider end-->
-
-    <script type="text/javascript">
-        var counter = 1;
-        setInterval(function () {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 4) {
-                counter = 1;
-            }
-        }, 5000);
-    </script>
-    <div class="wrapwrap">
-        <h2 id="animetag" style="color: white;">Anime &rarr;</h2>
-        <div class="wrapper">
-
-            <section id="section1">
-                <a href="#section2" class="arrow__btn">‹</a>
-                <div class="item">
-                    <img src="img/aniRec11.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec2.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec3.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec4.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec5.jpg">
-                </div>
-                <a href="#section2" class="arrow__btn">›</a>
-            </section>
-            <section id="section2">
-                <a href="#section1" class="arrow__btn">‹</a>
-                <div class="item">
-                    <img src="img/aniRec6.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec7.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec1.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec9.jpg">
-                </div>
-                <div class="item">
-                    <img src="img/aniRec10.jpg">
-                </div>
-                <a href="#section1" class="arrow__btn">›</a>
-            </section>
+        %nbsp;
+        <h1 class="webs">WebSeries</h1>
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+            <div class="carousel-cell cell-uk"><a class="cell-1" href="#"><img src="img/webRec1.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-2"><a class="cell-1" href="#"><img src="img/webRec2.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-3"><a class="cell-1" href="#"><img src="img/webRec3.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-4"><a class="cell-1" href="#"><img src="img/webRec4.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-5"><a class="cell-1" href="#"><img src="img/webRec5.jpg" alt=""></a></div>
+            <div class="carousel-cell cell-6"><a class="cell-1" href="#"><img src="img/webRec6.jpg" alt=""></a></div>
 
         </div>
-    </div>
-</body>
+        &nbsp;
+        <footer>
+            <span>
+                Copyright &copy; 2021 , Some {Maybe No} Rights Reserved
+            </span>
+            <br>
+            <span>
+                Made with &#10084; By <a href="t.me/feedback7bot">Harsh</a>
+            </span>
+        </footer>
+    </body>
 
-</html>
+    </html>

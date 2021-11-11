@@ -275,13 +275,6 @@
     }
 
 
-    #mySidenav {
-        visibility: hidden;
-    }
-
-    #main {
-        visibility: hidden;
-    }
 
     footer {
         background: lawngreen;
@@ -299,71 +292,10 @@
             display: inline;
         }
 
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: rgb(255, 255, 255);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            visibility: hidden;
-        }
 
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
 
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
 
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
 
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-            visibility: visible;
-        }
-
-        #mySidenav {
-            visibility: visible;
-        }
-
-        .sidenav {
-            padding-top: 15px;
-        }
-
-        .sidenav a {
-            font-size: 18px;
-        }
-
-        .sidenav {
-            visibility: visible;
-        }
-
-        .sidnav {
-            cursor: pointer;
-            color: white;
-        }
-
-        /* body {
-        background-color: blanchedalmond;
-    } */
         .btn {
             position: relative;
             top: 187px;
@@ -379,9 +311,7 @@
             font: 18px;
         }
 
-        .op {
-            visibility: hidden;
-        }
+
 
         .footer {
             width: auto;
@@ -418,48 +348,7 @@
 </style>
 
 <body>
-    <div class="op">
-        <ul style="position: sticky;">
-            <li style="position: sticky;"><a class="active" href="#">Home</a></li>
-            <li style="position: sticky;"><a target="blank" href="https://t.me/">Contact Us</a></li>
-            <li style="position: sticky;"><a href="">List</a></li>
-            <li style="position: sticky;"><a href="dmca_note.html">DMCA</a></li>
-            <img class="navimg" src="img/1.jpg" alt="">
-            <img class="navimg" src="img/2.jpg" alt="">
-            <img class="navimgl" src="img/3.jpg" alt="">
-            <img class="navimgl" src="img/4.jpg" alt="">
-        </ul>
 
-
-    </div>
-
-
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">Contact Us</a>
-        <a href="#">List</a>
-        <a href="#">DMCA</a>
-    </div>
-
-    <div id="main">
-
-
-        <span class="sidnav" style="font-size:30px;cursor:pointer;  color: lawngreen;"
-            onclick="openNav()">&#9776;</span>
-    </div>
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
     <div class="welcome">
         <div class="welc">
             <h2 style="color: white; " class="inline"><a href="home.html">Start your Watching Journey Now!</a></h1>
@@ -564,7 +453,7 @@
     </section>
     <div class="footer">
         <footer class="footer">
-            <span>&copf; Copyright 2021 AniWatch.ml</span>
+            <span>&copy; Copyright 2021 AniWatch.ml</span>
             <br>
             <span>Made With &#10084; By Harsh</span>
         </footer>
